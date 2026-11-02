@@ -14,7 +14,8 @@ The objective is to present key HR metrics in a single dashboard and help identi
 
 ## Dashboard Preview
 
-![HR Analytics Dashboard](dashboard/dashboard-preview.png)
+![HR Analytics Dashboard](./dashboard/dashboard-preview.png)
+
 ## Dataset Overview
 
 - Total employee records: 1,470
