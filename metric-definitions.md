@@ -1,25 +1,60 @@
-# KPI Definitions
+# KPI Definitions and Data Validation
 
-This document records the values shown on the dashboard. Confirm the original DAX or calculation logic before marking the definitions as verified.
+## Overview
 
-| KPI | Displayed value | Definition to verify |
+This document defines the key performance indicators displayed in the HR Attrition Analysis dashboard and records validation checks against the supplied dataset.
+
+## KPI Summary
+
+| KPI | Value | Definition |
 |---|---:|---|
-| Employee count | 1,470 | Is this a row count or distinct employee count? |
-| Attrition count | 237 | Confirm the filter used to identify employees who left. |
-| Attrition rate | 16.1% | Likely attrition count divided by employee count; verify numerator and denominator. |
-| Average age | 36.92 | Confirm age field and filters. |
-| Average salary | 6.50K | Confirm income field, unit, and filters. |
-| Average years at company | 7.01 | Confirm tenure field and filters. |
+| Employee Count | 1,470 | Total employee records |
+| Attrition Count | 237 | Employees whose attrition status is Yes |
+| Attrition Rate | 16.12% | Attrition count divided by total employee records |
+| Average Age | 36.92 | Mean employee age |
+| Average Monthly Income | Approximately 6.50K | Mean monthly income; confirm currency and units |
+| Average Years at Company | 7.01 | Mean employee tenure at the company |
 
-## Category Definitions to Verify
+## Attrition Rate Calculation
 
-- **Age groups:** The screenshot shows 18–25, 26–35, 36–45, 46–55, and 55+; verify boundaries and whether the final group is 55+ or 56+.
-- **Salary slabs:** The screenshot shows up to 5k, 5k–10k, 10k–15k, and 15k+; verify whether boundary values overlap.
-- **Years at company:** Confirm whether the chart uses exact tenure values or grouped categories.
+Attrition Rate = (Employees with Attrition = Yes / Total Employees) × 100
 
-## Validation
+Using the supplied dataset:
 
-- [ ] Compare every measure with the original Power BI report.
-- [ ] Confirm whether slicers affect the KPI cards.
-- [ ] Confirm units, currency, rounding, and filter context.
-- [ ] Test the attrition-rate calculation against the underlying data.
+Attrition Rate = (237 / 1,470) × 100 = 16.12%
+
+## Data Validation
+
+The supplied CSV agrees with the dashboard on the following metrics:
+
+- Total employee records
+- Attrition count
+- Overall attrition rate
+- Average age
+- Average years at company
+
+The average monthly income is also consistent with the displayed value of approximately 6.50K. The exact unit and currency should be confirmed.
+
+## Gender Chart Discrepancy
+
+The supplied dataset contains:
+
+| Gender | Attrition Count |
+|---|---:|
+| Male | 150 |
+| Female | 87 |
+| Total | 237 |
+
+The dashboard screenshot appears to show 140 male and 79 female attrition cases, totaling 219.
+
+This discrepancy requires investigation. Possible explanations include visual-level filters, different filter contexts, or a difference between the screenshot and the supplied dataset.
+
+Do not treat the gender chart as reconciled until the original Power BI report has been checked.
+
+## Validation Checklist
+
+- [ ] Verify the DAX measures in the original Power BI report.
+- [ ] Check page-level, visual-level, and slicer filters.
+- [ ] Confirm the salary unit and currency.
+- [ ] Reconcile the gender chart with the source dataset.
+- [ ] Confirm all KPI values after applying the intended filters.
