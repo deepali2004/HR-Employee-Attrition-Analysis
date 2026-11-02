@@ -1,17 +1,15 @@
-# Power BI temporary/backup files
-*.tmp
-*.bak
-~$*
-
-# Excel temporary/lock files
+# Office temporary files
 ~$*.xlsx
 ~$*.xlsm
+~$*.xls
+*.tmp
+*.bak
 
-# OS files
+# Operating system files
 .DS_Store
 Thumbs.db
 
-# Python (if added later)
+# Python files, if added later
 __pycache__/
 *.py[cod]
 .venv/
